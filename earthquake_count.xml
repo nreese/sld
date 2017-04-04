@@ -1,0 +1,62 @@
+<StyledLayerDescriptor version="1.0.0"
+    xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
+    xmlns="http://www.opengis.net/sld"
+    xmlns:ogc="http://www.opengis.net/ogc"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NamedLayer>
+    <Name>GeoHashGrid</Name>
+    <UserStyle>
+      <Title>GeoHashGrid</Title>
+      <Abstract>GeoHashGrid aggregation</Abstract>
+      <FeatureTypeStyle>
+        <Transformation>
+          <ogc:Function name="vec:GeoHashGrid">
+            <ogc:Function name="parameter">
+              <ogc:Literal>data</ogc:Literal>
+            </ogc:Function>
+            <ogc:Function name="parameter">
+              <ogc:Literal>gridStrategy</ogc:Literal>
+              <ogc:Literal>basic</ogc:Literal>
+            </ogc:Function>
+            <ogc:Function name="parameter">
+              <ogc:Literal>pixelsPerCell</ogc:Literal>
+              <ogc:Literal>1</ogc:Literal>
+            </ogc:Function>
+            <ogc:Function name="parameter">
+              <ogc:Literal>outputBBOX</ogc:Literal>
+              <ogc:Function name="env">
+                <ogc:Literal>wms_bbox</ogc:Literal>
+              </ogc:Function>
+            </ogc:Function>
+            <ogc:Function name="parameter">
+              <ogc:Literal>outputWidth</ogc:Literal>
+              <ogc:Function name="env">
+                <ogc:Literal>wms_width</ogc:Literal>
+              </ogc:Function>
+            </ogc:Function>
+            <ogc:Function name="parameter">
+              <ogc:Literal>outputHeight</ogc:Literal>
+              <ogc:Function name="env">
+                <ogc:Literal>wms_height</ogc:Literal>
+              </ogc:Function>
+            </ogc:Function>
+          </ogc:Function>
+        </Transformation>
+        <Rule>
+         <RasterSymbolizer>
+           <Geometry>
+             <!-- Actual geometry property name in feature source -->
+             <ogc:PropertyName>location</ogc:PropertyName></Geometry>
+           <Opacity>0.6</Opacity>
+           <ColorMap type="ramp" >
+             <ColorMapEntry color="#FFFFFF" quantity="0" opacity="0"/>
+             <ColorMapEntry color="#FFFFFF" quantity="0.1"/>
+             <ColorMapEntry color="#000000" quantity="2500"/>
+           </ColorMap>
+         </RasterSymbolizer>
+        </Rule>
+      </FeatureTypeStyle>
+    </UserStyle>
+  </NamedLayer>
+ </StyledLayerDescriptor>
