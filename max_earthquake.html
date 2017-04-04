@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <div id="mapid" style="height: 500px; width: 1000px;"></div>
+    <script type="text/javascript">
+      var mymap = L.map('mapid').setView([0, -160], 2);
+      L.tileLayer(
+        'http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+        {
+          attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(mymap);
+        
+      var wmsOptions = {
+        format: 'image/png',
+        layers: 'elastic:event',
+        transparent: true,
+        version: '1.1.1',
+        styles: 'earthquake',
+        viewparams: 'a:{"aggs": {"geohash_grid": {"field": "location"}\\,"aggs": {"metric": {"max": {"field": "magnitude"}}}}}'
+      };
+      L.tileLayer.wms(
+        'http://localhost:8080/geoserver/elastic/wms', 
+        wmsOptions).addTo(mymap);
+    </script>
+  </body>
+</html>
