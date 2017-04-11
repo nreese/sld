@@ -28,6 +28,10 @@
               <ogc:Literal>key</ogc:Literal>
             </ogc:Function>
             <ogc:Function name="parameter">
+              <ogc:Literal>gridStrategyEmptyCellValue</ogc:Literal>
+              <ogc:Literal>-1</ogc:Literal>
+            </ogc:Function>
+            <ogc:Function name="parameter">
               <ogc:Literal>pixelsPerCell</ogc:Literal>
               <ogc:Literal>1</ogc:Literal>
             </ogc:Function>
@@ -58,16 +62,17 @@
              <ogc:PropertyName>location</ogc:PropertyName></Geometry>
            <Opacity>0.6</Opacity>
            <ColorMap type="ramp" >
-             <ColorMapEntry color="#FFFFFF" quantity="0" label="nodata" opacity="0"/>
-             <ColorMapEntry color="#ffffb2" quantity="1" label="label"/>
-             <ColorMapEntry color="#fed976" quantity="2" label="label"/>
-             <ColorMapEntry color="#feb24c" quantity="3" label="label"/>
-             <ColorMapEntry color="#fd8d3c" quantity="4" label="label"/>
-             <ColorMapEntry color="#fd8d3c" quantity="4" label="label"/>
-             <ColorMapEntry color="#fc4e2a" quantity="5" label="label"/>
-             <ColorMapEntry color="#e31a1c" quantity="6" label="label"/>
-             <ColorMapEntry color="#b10026" quantity="7" label="label"/>
-             <ColorMapEntry color="#800026" quantity="11" label="label"/>
+             <ColorMapEntry color="#FFFFFF" quantity="-1" opacity="0"/>
+             <ColorMapEntry color="#FFFFFF" quantity="0"/>
+             <ColorMapEntry color="#ffffb2" quantity="1"/>
+             <ColorMapEntry color="#fed976" quantity="2"/>
+             <ColorMapEntry color="#feb24c" quantity="3"/>
+             <ColorMapEntry color="#fd8d3c" quantity="4"/>
+             <ColorMapEntry color="#fd8d3c" quantity="4"/>
+             <ColorMapEntry color="#fc4e2a" quantity="5"/>
+             <ColorMapEntry color="#e31a1c" quantity="6"/>
+             <ColorMapEntry color="#b10026" quantity="7"/>
+             <ColorMapEntry color="#800026" quantity="11"/>
            </ColorMap>
          </RasterSymbolizer>
         </Rule>
