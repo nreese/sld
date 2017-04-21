@@ -20,6 +20,10 @@
               <ogc:Literal>basic</ogc:Literal>
             </ogc:Function>
             <ogc:Function name="parameter">
+              <ogc:Literal>gridStrategyEmptyCellValue</ogc:Literal>
+              <ogc:Literal>-1</ogc:Literal>
+            </ogc:Function>
+            <ogc:Function name="parameter">
               <ogc:Literal>pixelsPerCell</ogc:Literal>
               <ogc:Literal>1</ogc:Literal>
             </ogc:Function>
@@ -50,9 +54,9 @@
              <ogc:PropertyName>location</ogc:PropertyName></Geometry>
            <Opacity>0.6</Opacity>
            <ColorMap type="ramp" >
-             <ColorMapEntry color="#FFFFFF" quantity="0" opacity="0"/>
-             <ColorMapEntry color="#FFFFFF" quantity="0.1"/>
-             <ColorMapEntry color="#000000" quantity="2500"/>
+             <ColorMapEntry color="#FFFFFF" quantity="-1" label="NA" opacity="0"/>
+             <ColorMapEntry color="#FFFFFF" quantity="0" label="0"/>
+             <ColorMapEntry color="#000000" quantity="2500" label="2500"/>
            </ColorMap>
          </RasterSymbolizer>
         </Rule>

@@ -2,6 +2,7 @@
   <head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+    <script src="./bower_components/Leaflet.NonTiledLayer/dist/NonTiledLayer.js"></script>
   </head>
   <body>
     <div id="mapid" style="height: 500px; width: 1000px;"></div>
@@ -18,12 +19,16 @@
         layers: 'elastic:event',
         transparent: true,
         version: '1.1.1',
-        styles: ' earthquake_count',
+        styles: 'earthquake_count',
+        format_options: 'layout:legend',
         viewparams: 'a:{"aggs": {"geohash_grid": {"field": "location"}}}'
       };
-      L.tileLayer.wms(
+      new L.NonTiledLayer.WMS(
         'http://localhost:8080/geoserver/elastic/wms', 
         wmsOptions).addTo(mymap);
+      /*L.tileLayer.wms(
+        'http://localhost:8080/geoserver/elastic/wms', 
+        wmsOptions).addTo(mymap);*/
     </script>
   </body>
 </html>

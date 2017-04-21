@@ -7,6 +7,7 @@
   "description": "",
   "main": "",
   "dependencies": {
-    "leaflet-wms-legend": "https://github.com/kartoza/leaflet-wms-legend.git"
+    "leaflet-wms-legend": "https://github.com/kartoza/leaflet-wms-legend.git",
+    "Leaflet.NonTiledLayer": "https://github.com/ptv-logistics/Leaflet.NonTiledLayer.git#f9775506389e461e59d2f15ad2b4786e67eb4ed5"
   }
 }
