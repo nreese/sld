@@ -1,0 +1,12 @@
+{
+  "name": "sld",
+  "homepage": "https://github.com/nreese/sld",
+  "authors": [
+    "nreese <reese.nathan@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "leaflet-wms-legend": "https://github.com/kartoza/leaflet-wms-legend.git"
+  }
+}

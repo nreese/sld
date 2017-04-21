@@ -1,29 +1,34 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
+    <link rel="stylesheet" href="./bower_components/leaflet-wms-legend/leaflet.wmslegend.css"/>
     <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+    <script src="./bower_components/leaflet-wms-legend/leaflet.wmslegend.js"></script>
   </head>
   <body>
     <div id="mapid" style="height: 500px; width: 1000px;"></div>
     <script type="text/javascript">
-      var mymap = L.map('mapid').setView([0, -160], 2);
+      var map = L.map('mapid').setView([0, -160], 2);
       L.tileLayer(
         'http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', 
         {
           attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-        }).addTo(mymap);
+        }).addTo(map);
 
       var wmsOptions = {
         format: 'image/png',
         layers: 'elastic:event',
         transparent: true,
         version: '1.1.1',
-        styles: ' earthquake_max_histo_bin',
+        styles: 'earthquake_max_histo_bin',
         viewparams: 'a:{"aggs": {"geohash_grid": {"field": "location"}\\,"aggs": {"nested": {"histogram": {"field": "magnitude"\\,"interval": 1\\,"min_doc_count": 1}}}}}'
       };
       L.tileLayer.wms(
         'http://localhost:8080/geoserver/elastic/wms', 
-        wmsOptions).addTo(mymap);
+        wmsOptions).addTo(map);
+
+      legendUri = "http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=elastic:event&STYLE=earthquake_max_histo_bin&LEGEND_OPTIONS=forceRule:true";
+      L.wmsLegend(legendUri);
     </script>
   </body>
 </html>
